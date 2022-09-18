@@ -1,4 +1,4 @@
-const { google } =  require("googleapis");
+const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const calendar = google.calendar("v3");
 
@@ -12,19 +12,18 @@ const credentials = {
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-  redirect_uris: ["https://digital-solver.github.io/meetapp/"],
-  javascript_origins: ["https://digital-solver.github.io", "http://localhost:3000"],
+  redirect_uris: ["https://Digital-Solver.github.io/meet"],
+  javascript_origins: ["https://Digital-Solver.github.io", "http://localhost:3000"],
 };
-
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
-
 const oAuth2Client = new google.auth.OAuth2(
   client_id,
   client_secret,
-  redirect_uris[0],
+  redirect_uris[0]
 );
 
 module.exports.getAuthURL = async () => {
+
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: "offline",
     scope: SCOPES,
@@ -35,40 +34,43 @@ module.exports.getAuthURL = async () => {
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
-    body: JSON.stringify({ authUrl }),
+    body: JSON.stringify({
+      authUrl: authUrl,
+    }),
   };
 };
 
 module.exports.getAccessToken = async (event) => {
-  const oAuth2Client = new google.auth.OAuth2(
-    client_id,
-    client_secret,
-    redirect_uris[0]
-  );
-  const code = decodeURIComponent(`${event.pathParameters.code}`);
-
-  return new Promise((resolve, reject) => {
-    oAuth2Client.getToken(code, (err, token) => {
-      if (err) {
-        return reject(err);
-      }
-      return resolve(token);
-    });
-  })
-  .then((token) => {
-    return {
-      statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify(token),
-    };
-  })
-  .catch((err) => {
-    console.error(err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify(err),
-    };
-  })
-}
+    const oAuth2Client = new google.auth.OAuth2(
+      client_id,
+      client_secret,
+      redirect_uris[0]
+    );
+    const code = decodeURIComponent(`${event.pathParameters.code}`);
+  
+    return new Promise((resolve, reject) => {
+  
+      oAuth2Client.getToken(code, (err, token) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(token);
+      });
+    })
+      .then((token) => {
+        return {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify(token),
+        };
+      })
+      .catch((err) => {
+        console.error(err);
+        return {
+          statusCode: 500,
+          body: JSON.stringify(err),
+        };
+      });
+  };
