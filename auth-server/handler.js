@@ -13,7 +13,7 @@ const credentials = {
   token_uri: "https://oauth2.googleapis.com/token",
   auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
   redirect_uris: ["https://Digital-Solver.github.io/meetapp"],
-  javascript_origins: ["https://Digital-Solver.github.io", "http://localhost:3000"],
+  javascript_origins: ["https://Digital-Solver.github.io", "http://localhost:3000", "http://localhost:5500"],
 };
 const { client_secret, client_id, redirect_uris, calendar_id } = credentials;
 const oAuth2Client = new google.auth.OAuth2(
@@ -49,7 +49,6 @@ module.exports.getAccessToken = async (event) => {
     const code = decodeURIComponent(`${event.pathParameters.code}`);
   
     return new Promise((resolve, reject) => {
-  
       oAuth2Client.getToken(code, (err, token) => {
         if (err) {
           return reject(err);
