@@ -21,7 +21,7 @@ describe('<Event /> component', () => {
   let EventWrapper;
   
   beforeAll(() => {
-    EventWrapper = shallow(<Event details={ mockData[0] } />);
+    EventWrapper = shallow(<Event event={ mockData[0] } />);
   });
   
   test('renders details outer container', () => {
