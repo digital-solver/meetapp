@@ -1,5 +1,6 @@
 /* Hidden by Default */
 .details__toggle--hide-text,
+.details__toggle--show-text,
 .details__inner-container {
   display: none;
 }
