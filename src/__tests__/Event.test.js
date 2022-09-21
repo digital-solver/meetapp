@@ -5,7 +5,7 @@ Tests:
 - DONE: Parent: Event component is rendered
 - DONE: Render <div className="details-container">
 - DONE: Render <button className="details-button">Show Details</button>
-- DOING: When <div> className list does not include "visible", it is empty
+- DONE: When <div> className list does not include "visible", it is empty
 - When clicks are simulated, className="visible" is toggled on details div and button
 - When className="visible" is toggled on button, button text is toggled: show/hide
 - When className="visible" is toggled on div, all detail elements visibility is toggled
@@ -24,7 +24,7 @@ describe('<Event /> component', () => {
     EventWrapper = shallow(<Event details={ mockData[0] } />);
   });
   
-  test('renders details container', () => {
+  test('renders details outer container', () => {
     const detailsContainer = EventWrapper.find('.details__outer-container');
     expect(detailsContainer).toHaveLength(1);
   });
@@ -34,16 +34,29 @@ describe('<Event /> component', () => {
     expect(detailsToggle).toHaveLength(1);
   });
 
-  test('renders details', () => {
+  test('renders details inner container', () => {
     const details = EventWrapper.find('.details__inner-container');
     expect(details).toHaveLength(1);
-  })
-
-  test('toggles detail visibility', () => {
-    const details = EventWrapper.find('.detail');
-    const visible = EventWrapper.find('.visible');
-
-    expect(!!details.length).toBe(!!visible.length);
   });
 
-})
+  test('detail visibility is in sync with container visible class', () => {
+    const details = EventWrapper.find('.detail');
+    const visible = EventWrapper.find('.visible');
+    expect(!!details.length).toBe(!!(visible.length - 1));
+  });
+
+  test('button click toggles from invisible to visible', () => {
+    EventWrapper.setState({isVisible: false})
+    const button = EventWrapper.find('.details__toggle')
+    button.simulate('click')
+    expect(EventWrapper.state("isVisible")).toEqual(true)
+  });
+
+  test('button click toggles from visible to invisible', () => {
+    EventWrapper.setState({isVisible: true})
+    const button = EventWrapper.find('.details__toggle')
+    button.simulate('click')
+    expect(EventWrapper.state("isVisible")).toEqual(false)
+  });
+
+});

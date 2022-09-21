@@ -1,0 +1,10 @@
+/* Hidden by Default */
+.details__toggle--hide-text,
+.details__inner-container {
+  display: none;
+}
+
+/* Visible Class */
+.visible {
+  display: block;
+}
