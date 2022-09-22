@@ -6,7 +6,6 @@ export class NumberOfEvents extends Component {
 
   handleChange = (e) => {
     const value = e.target.value;
-
     this.setState({ numberOfEvents: value });
   };
 
