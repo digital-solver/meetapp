@@ -12,7 +12,6 @@ export class Event extends Component {
   
   clickHandler = () => {
     this.setState({isVisible: !this.state.isVisible});
-    console.log(`State After Change: ${this.state.isVisible}`);
   };
 
   render() {
@@ -21,7 +20,6 @@ export class Event extends Component {
 
     return (
       <div className='details__outer-container'>
-        {console.log(`State in JSX: ${isVisible}`)}
         <h2>{event.summary}</h2>
         <p>{event.description}</p>
         <button className='details__toggle' onClick={this.clickHandler}> 
