@@ -2,21 +2,26 @@ import React, { Component } from 'react'
 import './Event.css';
 
 export class Event extends Component {
-  
-  state = {isVisible: false}
-  
-  clickHandler = () => {
-    console.log('click registered')
-    this.setState({isVisible: !this.state.isVisible})
+  constructor(props) {
+    super(props);
+    this.state = {
+      isVisible: false,
+    }
   }
 
-  render() {
+  
+  clickHandler = () => {
+    this.setState({isVisible: !this.state.isVisible});
+    console.log(`State After Change: ${this.state.isVisible}`);
+  };
 
-  const { isVisible } = this.state.isVisible;
+  render() {
+  const isVisible = this.state.isVisible;
   const { event } = this.props;
 
     return (
       <div className='details__outer-container'>
+        {console.log(`State in JSX: ${isVisible}`)}
         <h2>{event.summary}</h2>
         <p>{event.description}</p>
         <button className='details__toggle' onClick={this.clickHandler}> 
