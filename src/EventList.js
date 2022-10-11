@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import Event from './Event'
 
 export class EventList extends Component {
+  state = {
+    numberOfEvents: this.props.eventsLength,
+  }
+  
   render() {
     const {events} = this.props;
     return (

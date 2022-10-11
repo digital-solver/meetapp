@@ -11,6 +11,7 @@ class App extends Component {
   state = {
     events: mockData,
     locations: extractLocations(mockData),
+    eventsLength: 32,
   }
 
   updateEvents = (location) => {
@@ -41,8 +42,8 @@ class App extends Component {
   return (
     <div className="App">
       <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-      <NumberOfEvents />
-      <EventList events={this.state.events}/>
+      <NumberOfEvents eventsLength={this.state.eventsLength}/>
+      <EventList events={this.state.events} eventsLength={this.state.eventsLength}/>
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 export class NumberOfEvents extends Component {
-  
-  state = { numberOfEvents: 32 };
+
+  state = { numberOfEvents: this.props.eventsLength };
 
   handleChange = (e) => {
     const value = e.target.value;

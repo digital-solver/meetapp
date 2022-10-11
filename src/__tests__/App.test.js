@@ -66,4 +66,14 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
+
+  test('EventList length is 32 by default', async () => {
+    const AppWrapper = mount(<App />)
+    const appEventsState = AppWrapper.state('eventsLength');
+    expect(appEventsState).toEqual(32);
+    expect(AppWrapper.find(NumberOfEvents).state('numberOfEvents')).toEqual(appEventsState);
+    expect(AppWrapper.find(EventList).state('numberOfEvents')).toEqual(appEventsState);
+    AppWrapper.unmount();
+    });
+
 });
