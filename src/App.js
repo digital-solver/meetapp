@@ -14,13 +14,13 @@ class App extends Component {
     eventsLength: 32,
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventCount = this.state.eventsLength) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') 
       ? events 
       : events.filter((event) => event.location === location);
       this.setState({
-        events: locationEvents
+        events: locationEvents.slice(0, eventCount)
       });
     });
   }

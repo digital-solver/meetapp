@@ -76,14 +76,13 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
     });
 
-    test('EventList state updates when new length is specified in NumberOfEvents', async () => {
-      const AppWrapper = mount(<App />);
-      const NumberOfEventsWrapper = AppWrapper.find('NumberOfEvents');
-      const EventListWrapper = AppWrapper.find('EventList');
-      NumberOfEventsWrapper.simulate('change', { target: { value: '10' } });
-      expect(EventListWrapper.state('numberOfEvents')).toEqual(NumberOfEventsWrapper.state('numberOfEvents'))
-    });
-
-    // test('EventList gets events with the length specified in its state', )
+  test('EventList updates when new length is specified in NumberOfEvents', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find('NumberOfEvents');
+    const EventListWrapper = AppWrapper.find('EventList');
+    NumberOfEventsWrapper.simulate('change', { target: { value: 10 } });
+    expect(EventListWrapper.state('numberOfEvents')).toEqual(NumberOfEventsWrapper.state('numberOfEvents'))
+    AppWrapper.unmount();
+  });
 
 });
