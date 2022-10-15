@@ -80,7 +80,10 @@ describe('<App /> integration', () => {
       const AppWrapper = mount(<App />);
       const NumberOfEventsWrapper = AppWrapper.find('NumberOfEvents');
       const EventListWrapper = AppWrapper.find('EventList');
-      await NumberOfEventsWrapper.instance().handleChange(10);
+      NumberOfEventsWrapper.simulate('change', { target: { value: '10' } });
       expect(EventListWrapper.state('numberOfEvents')).toEqual(NumberOfEventsWrapper.state('numberOfEvents'))
     });
+
+    // test('EventList gets events with the length specified in its state', )
+
 });
