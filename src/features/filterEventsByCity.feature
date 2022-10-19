@@ -15,4 +15,4 @@ Given the user was typing <city> in the search box
 And the suggestions list is visible
 When the user selects a city from the list
 Then the user's active city shoud be changed to their selection
-And the user should be shown that city's list of events 
+And the user should be shown that city's list of events
