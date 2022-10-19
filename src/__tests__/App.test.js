@@ -71,8 +71,8 @@ describe('<App /> integration', () => {
     const AppWrapper = mount(<App />)
     const appEventsState = AppWrapper.state('eventsLength');
     expect(appEventsState).toEqual(32);
-    expect(AppWrapper.find(NumberOfEvents).state('numberOfEvents')).toEqual(appEventsState);
-    expect(AppWrapper.find(EventList).state('numberOfEvents')).toEqual(appEventsState);
+    expect(AppWrapper.find(NumberOfEvents).prop('eventsLength')).toEqual(appEventsState);
+    expect(AppWrapper.find(EventList).prop('events').length).toEqual(appEventsState);
     AppWrapper.unmount();
     });
 
@@ -80,8 +80,14 @@ describe('<App /> integration', () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find('NumberOfEvents');
     const EventListWrapper = AppWrapper.find('EventList');
+
     NumberOfEventsWrapper.simulate('change', { target: { value: 10 } });
-    expect(EventListWrapper.state('numberOfEvents')).toEqual(NumberOfEventsWrapper.state('numberOfEvents'))
+
+    console.log(EventListWrapper.prop('events').length);
+    console.log(NumberOfEventsWrapper.prop('eventsLength'));
+
+    expect(EventListWrapper.prop('events').length).toEqual(NumberOfEventsWrapper.prop('eventsLength'))
+    
     AppWrapper.unmount();
   });
 
