@@ -24,6 +24,11 @@ class App extends Component {
       });
     });
   }
+
+  handleChange = (e) => {
+    const value = e.target.value;
+    this.setState({ eventsLength: value });
+  };
   
   componentDidMount() {
     this.mounted = true;
@@ -39,11 +44,12 @@ class App extends Component {
   }
 
   render() {
+    const {events, locations, eventsLength} = this.state;
   return (
     <div className="App">
-      <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-      <NumberOfEvents eventsLength={this.state.eventsLength}/>
-      <EventList events={this.state.events} eventsLength={this.state.eventsLength}/>
+      <CitySearch locations={locations} updateEvents={this.updateEvents}/>
+      <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange}/>
+      <EventList events={events.slice(0, eventsLength)}/>
     </div>
   );
 }
