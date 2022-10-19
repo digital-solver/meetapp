@@ -6,7 +6,7 @@ When the user opens the app
 Then the user should see a list of all upcoming events
 
 Scenario: User should see a list of suggestions when they search for a city
-Given the main page is opens
+Given the main page is open
 When the user starts typing in the city textbox
 Then the user should see a list of cities (suggestions) that match what they've typed
 
