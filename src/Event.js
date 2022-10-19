@@ -19,7 +19,7 @@ export class Event extends Component {
   const { event } = this.props;
 
     return (
-      <div className='details__outer-container'>
+      <div className='details__outer-container event'>
         <h2>{event.summary}</h2>
         <p>{event.description}</p>
         <button className='details__toggle' onClick={this.clickHandler}> 

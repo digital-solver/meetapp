@@ -7,7 +7,6 @@ import { loadFeature, defineFeature } from 'jest-cucumber';
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, (test) => {
-  
   test('When a user hasn\'t searched for a city, show upcoming events from all cities.', ({ given, when, then }) => {
     given('user hasn\'t searched for any city', () => {
 
@@ -19,7 +18,8 @@ defineFeature(feature, (test) => {
     });
 
     then('the user should see a list of all upcoming events', () => {       
-
+      AppWrapper.update();
+      expect(AppWrapper.find('.event')).toHaveLength(mockData.length);
     });
   });
 
