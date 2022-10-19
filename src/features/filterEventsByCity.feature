@@ -11,7 +11,7 @@ When the user starts typing in the city textbox
 Then the user should see a list of cities (suggestions) that match what they've typed
 
 Scenario: User can select a city from the suggested list
-Given the user was typing <city> in the search box
+Given the user was typing in the search box
 And the suggestions list is visible
 When the user selects a city from the list
 Then the user's active city shoud be changed to their selection
