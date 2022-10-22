@@ -38,3 +38,40 @@ describe('show/hide an events details', () => {
   })
 
 });
+
+describe('filter events by city', () => {
+  let browser;
+  let page;
+
+  beforeAll(async () => {
+    jest.setTimeout(30000)
+    browser = await puppeteer.launch();
+    page = await browser.newPage();
+    await page.goto('http://localhost:3000/');
+    await page.waitForSelector('.event');
+  });
+
+  afterAll(async () => {
+    browser.close();
+  });
+
+  test('when user has not searched for a city show upcoming events from all cities', async () => {
+    const locationsList = await page.$$('.event__location');
+    expect(locationsList.length).toBeGreaterThan(1);
+  });
+  
+  test('user should see a list of suggestions when they search for a city', async () => {
+    const citySearch = await page.$('.city');
+    await citySearch.type('Berlin');
+    const suggestions = await page.$$('.suggestions li');
+    expect(suggestions.length).toBe(2);
+  });
+  
+  test('user can select a city from the suggested list', async () => {
+    const suggestions = await page.$$('.suggestions li');
+    await page.click('.suggestions li');
+    const locationsList = await page.$$('.event__location');
+    expect(locationsList.length).toEqual(1);;
+  });
+
+})

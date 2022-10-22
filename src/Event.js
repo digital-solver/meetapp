@@ -27,9 +27,9 @@ export class Event extends Component {
           <span className={isVisible ? "details__toggle--hide-text visible" : "details__toggle--hide-text"}>Hide</span>
         </button>
         <div className={isVisible ? "details__inner-container visible" : "details__inner-container"}>
-          <p>Location: {event.location}</p>
-          <p>From: {event.start.dateTime}</p>
-          <p>Until: {event.end.dateTime}</p>
+          <p className='event__location'>Location: {event.location}</p>
+          <p className='event__start'>From: {event.start.dateTime}</p>
+          <p className='event__end'>Until: {event.end.dateTime}</p>
         </div>
       </div>
     );
