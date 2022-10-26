@@ -12,6 +12,8 @@ class App extends Component {
     events: mockData,
     locations: extractLocations(mockData),
     eventsLength: 32,
+    errorText: '',
+    warningText: 'Range limit!',
   }
 
   updateEvents = (location, eventCount = this.state.eventsLength) => {
@@ -27,7 +29,27 @@ class App extends Component {
 
   handleChange = (e) => {
     const value = e.target.value;
-    this.setState({ eventsLength: value });
+    this.setState({eventsLength: value});
+
+    if (value < 1 || value > 32) {
+        this.setState({ 
+          errorText: 'Not in range (1 to 32)',
+        })
+      } else {
+        this.setState({
+          errorText: '',
+        });
+      } 
+    
+    if (value == 1 || value == 32) {
+      this.setState({
+        warningText: 'Range limit!',
+      })
+    } else {
+      this.setState({
+        warningText: '',
+      })
+    }
   };
   
   componentDidMount() {
@@ -48,7 +70,7 @@ class App extends Component {
   return (
     <div className="App">
       <CitySearch locations={locations} updateEvents={this.updateEvents}/>
-      <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange}/>
+      <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange} errorText={this.state.errorText} warningText={this.state.warningText}/>
       <EventList events={events.slice(0, eventsLength)}/>
     </div>
   );

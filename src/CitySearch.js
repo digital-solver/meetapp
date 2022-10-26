@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import {InfoAlert} from './Alert';
 
 export class CitySearch extends Component {
   state = {
     query: '',
     suggestions: [],
-    showSuggestions: undefined
+    showSuggestions: undefined,
+    infoText: '',
   };
 
   handleInputChanged = (event) => {
@@ -13,20 +15,32 @@ export class CitySearch extends Component {
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
-    this.setState({ query: value, suggestions });
-  }
+    if (suggestions.length === 0) {
+      this.setState({
+        query: value,
+        infoText: "Not found, try again."
+      });
+    } else {
+      return this.setState({ 
+        query: value, 
+        suggestions,
+        infoText:'' 
+    });
+    }
+  };
 
   handleItemClicked = (suggestion) => {
     this.setState({
       query: suggestion,
-      showSuggestions: false
+      showSuggestions: false,
+      infoText: '',
     });
     this.props.updateEvents(suggestion);
   }
 
   render() {
     return (
-      <div className='CitySearch'>
+      <div className='CitySearch' style={{'display': 'block'}}>
         <input
           type="text"
           className="city"
@@ -47,6 +61,7 @@ export class CitySearch extends Component {
             <b>See all cities</b>
           </li>
         </ul>
+        <InfoAlert text={this.state.infoText} />
       </div>
     )
   }

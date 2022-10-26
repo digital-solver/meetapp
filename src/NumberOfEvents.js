@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { ErrorAlert, WarningAlert } from './Alert';
 
 export class NumberOfEvents extends Component {
 
   render() {
-    const {eventsLength, handleChange} = this.props
+    const {eventsLength, handleChange, errorText, warningText} = this.props
 
     return (
       <div className='numberOfEvents'>
@@ -16,6 +17,8 @@ export class NumberOfEvents extends Component {
             onChange={handleChange}
           />
         </label>
+        <ErrorAlert text={errorText} />
+        <WarningAlert text={warningText} />
       </div>
     );
   }
