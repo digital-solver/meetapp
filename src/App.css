@@ -17,7 +17,7 @@ p {
   margin: 5px 0;
 }
 
-#online-status-warning {
+.online-status-warning {
   top: 120px;
 }
 
