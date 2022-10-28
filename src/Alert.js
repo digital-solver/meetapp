@@ -10,9 +10,6 @@ class Alert extends Component {
     return {
       color: this.color,
       marginTop: 0,
-      position: 'fixed',
-      right: this.right,
-      top: this.top,
       display: 'contents',
     };
   }
@@ -30,8 +27,6 @@ class InfoAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'blue';
-    this.right = '160px';
-    this.top ='25px';
   }
 }
 
@@ -39,8 +34,6 @@ class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'red';
-    this.right = '160px';
-    this.top ='100px';
   }
 }
 
@@ -48,8 +41,6 @@ class WarningAlert extends Alert {
   constructor(props) {
     super(props);
     this.color = 'orange';
-    this.right = '160px';
-    this.top ='100px';
   }
 }
 
