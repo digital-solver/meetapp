@@ -41,6 +41,7 @@ export class CitySearch extends Component {
   render() {
     return (
       <div className='CitySearch' style={{'display': 'block'}}>
+        <InfoAlert text={this.state.infoText} />
         <input
           type="text"
           className="city"
@@ -61,7 +62,6 @@ export class CitySearch extends Component {
             <b>See all cities</b>
           </li>
         </ul>
-        <InfoAlert text={this.state.infoText} />
       </div>
     )
   }
