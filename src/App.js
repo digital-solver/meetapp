@@ -6,6 +6,7 @@ import NumberOfEvents from './NumberOfEvents';
 import { mockData } from "./mock-data";
 import { extractLocations, getEvents } from './api';
 import './nprogress.css';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -67,13 +68,26 @@ class App extends Component {
 
   render() {
     const {events, locations, eventsLength} = this.state;
-  return (
-    <div className="App">
-      <CitySearch locations={locations} updateEvents={this.updateEvents}/>
-      <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange} errorText={this.state.errorText} warningText={this.state.warningText}/>
-      <EventList events={events.slice(0, eventsLength)}/>
-    </div>
-  );
+
+    if (navigator.onLine) {
+      return (
+        <div className="App">
+          <CitySearch locations={locations} updateEvents={this.updateEvents}/>
+          <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange} errorText={this.state.errorText} warningText={this.state.warningText}/>
+          <EventList events={events.slice(0, eventsLength)}/>
+        </div>
+      );
+    } else {
+    return (
+      <div className="App">
+        <WarningAlert text={`This app is offline!`}/>
+        <CitySearch locations={locations} updateEvents={this.updateEvents}/>
+        <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange} errorText={this.state.errorText} warningText={this.state.warningText}/>
+        <EventList events={events.slice(0, eventsLength)}/>
+      </div>
+    ); 
+  }
+
 }
 }
 
