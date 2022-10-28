@@ -18,6 +18,7 @@ export class NumberOfEvents extends Component {
           />
         </label>
         <ErrorAlert text={errorText} />
+        <ErrorAlert text={errorText} />
         <WarningAlert text={warningText} />
       </div>
     );

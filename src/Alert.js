@@ -13,7 +13,7 @@ class Alert extends Component {
       position: 'fixed',
       right: this.right,
       top: this.top,
-      display: 'block',
+      display: 'contents',
     };
   }
 
