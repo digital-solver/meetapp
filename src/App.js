@@ -69,9 +69,10 @@ class App extends Component {
   render() {
     const {events, locations, eventsLength} = this.state;
 
-    if (navigator.onLine) {
+    if (!navigator.onLine) {
       return (
         <div className="App">
+          <WarningAlert text={`This app is offline!`}/>
           <CitySearch locations={locations} updateEvents={this.updateEvents}/>
           <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange} errorText={this.state.errorText} warningText={this.state.warningText}/>
           <EventList events={events.slice(0, eventsLength)}/>
@@ -80,7 +81,6 @@ class App extends Component {
     } else {
     return (
       <div className="App">
-        <WarningAlert text={`This app is offline!`}/>
         <CitySearch locations={locations} updateEvents={this.updateEvents}/>
         <NumberOfEvents eventsLength={eventsLength} handleChange={this.handleChange} errorText={this.state.errorText} warningText={this.state.warningText}/>
         <EventList events={events.slice(0, eventsLength)}/>
