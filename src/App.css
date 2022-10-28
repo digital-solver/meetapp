@@ -17,6 +17,10 @@ p {
   margin: 5px 0;
 }
 
+#online-status-warning {
+  top: 120px;
+}
+
 .display-none {
   display: none;
 }
