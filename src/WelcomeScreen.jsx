@@ -29,7 +29,7 @@ o.svg"
         </div>
       </div>
       <a
-        href="https://Digital-Solver.github.io/meet/privacy.html"
+        href="https://Digital-Solver.github.io/meetapp/privacy.html"
         rel="nofollow noopener"
       >
         Privacy policy
