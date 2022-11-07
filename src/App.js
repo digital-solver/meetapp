@@ -120,12 +120,12 @@ class App extends Component {
         </ResponsiveContainer>
           
           <EventList events={events.slice(0, eventsLength)} />
-          {/* <WelcomeScreen
+          <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => {
               getAccessToken();
             }}
-          /> */}
+          />
         </div>
       );
     } else {
@@ -139,7 +139,7 @@ class App extends Component {
             warningText={this.state.warningText}
           />
           <ResponsiveContainer height={400} >
-          <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
+            <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
             <CartesianGrid />
             <XAxis type="category" dataKey="city" name="city" />
             <YAxis
@@ -153,12 +153,12 @@ class App extends Component {
           </ScatterChart>
         </ResponsiveContainer>
           <EventList events={events.slice(0, eventsLength)} />
-          {/* <WelcomeScreen
+          <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => {
               getAccessToken();
             }}
-          /> */}
+          />
         </div>
       );
     }
