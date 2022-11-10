@@ -124,12 +124,12 @@ class App extends Component {
           </ResponsiveContainer>
         </div>
           <EventList events={events.slice(0, eventsLength)} />
-          {/* <WelcomeScreen
+          <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => {
               getAccessToken();
             }}
-          /> */}
+          />
         </div>
       );
     } else {
@@ -160,12 +160,12 @@ class App extends Component {
             </ResponsiveContainer>
           </div>
           <EventList events={events.slice(0, eventsLength)} />
-          {/* <WelcomeScreen
+          <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => {
               getAccessToken();
             }}
-          /> */}
+          />
         </div>
       );
     }
