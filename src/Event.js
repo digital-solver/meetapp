@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import './Event.css';
+import React, { Component } from "react";
+import "./Event.css";
 
 export class Event extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isVisible: false,
-    }
+    };
   }
 
   
@@ -15,8 +15,8 @@ export class Event extends Component {
   };
 
   render() {
-  const isVisible = this.state.isVisible;
-  const { event } = this.props;
+    const isVisible = this.state.isVisible;
+    const { event } = this.props;
 
     return (
       <div className='details__outer-container event'>
@@ -36,4 +36,4 @@ export class Event extends Component {
   }
 }
 
-export default Event
+export default Event;

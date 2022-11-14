@@ -33,8 +33,8 @@ const mockDataJSON = [{
   "iCalUID": "4eahs9ghkhrvkld72hogu9ph3e@google.com",
   "sequence": 0,
   "eventType": "default"
-  },
-  {
+},
+{
   "kind": "calendar#event",
   "etag": "\"3181159875584000\"",
   "id": "3qtd6uscq4tsi6gc7nmmtpqlct_20220520T120000Z",
@@ -69,8 +69,8 @@ const mockDataJSON = [{
   "iCalUID": "3qtd6uscq4tsi6gc7nmmtpqlct@google.com",
   "sequence": 0,
   "eventType": "default"
-  }];
+}];
 
-const mockData = JSON.parse(JSON.stringify(mockDataJSON))
+const mockData = JSON.parse(JSON.stringify(mockDataJSON));
 
 export { mockData };

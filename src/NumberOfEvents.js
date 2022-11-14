@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { ErrorAlert, WarningAlert } from './Alert';
+import React, { Component } from "react";
+import { ErrorAlert, WarningAlert } from "./Alert";
 
 export class NumberOfEvents extends Component {
 
   render() {
-    const {eventsLength, handleChange, errorText, warningText} = this.props
+    const {eventsLength, handleChange, errorText, warningText} = this.props;
 
     return (
       <div className='numberOfEvents'>

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Event from './Event'
+import React, { Component } from "react";
+import Event from "./Event";
 
 export class EventList extends Component {  
   render() {
@@ -11,8 +11,8 @@ export class EventList extends Component {
             <Event event={event}/>
           </li>)}
       </ul>
-    )
+    );
   }
 }
 
-export default EventList
+export default EventList;

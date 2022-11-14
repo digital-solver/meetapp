@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import {InfoAlert} from './Alert';
+import React, { Component } from "react";
+import {InfoAlert} from "./Alert";
 
 export class CitySearch extends Component {
   state = {
-    query: '',
+    query: "",
     suggestions: [],
     showSuggestions: undefined,
-    infoText: '',
+    infoText: "",
   };
 
   handleInputChanged = (event) => {
     const value = event.target.value;
-    this.setState({query: value})
+    this.setState({query: value});
     const suggestions = this.props.locations.filter((location) => {
       return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
     });
@@ -24,8 +24,8 @@ export class CitySearch extends Component {
       return this.setState({ 
         query: value, 
         suggestions,
-        infoText:'' 
-    });
+        infoText:"" 
+      });
     }
   };
 
@@ -33,28 +33,28 @@ export class CitySearch extends Component {
     this.setState({
       query: suggestion,
       showSuggestions: false,
-      infoText: '',
+      infoText: "",
     });
     this.props.updateEvents(suggestion);
-  }
+  };
 
   render() {
     return (
-      <div className='CitySearch' style={{'display': 'block'}}>
+      <div className='CitySearch' style={{"display": "block"}}>
         <InfoAlert text={this.state.infoText} />
         <input
           type="text"
           className="city"
           value={this.state.query}
           onChange={this.handleInputChanged}
-          onFocus={() => {this.setState({ showSuggestions: true }) }}
+          onFocus={() => {this.setState({ showSuggestions: true }); }}
         />
-        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none'}}>
+        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: "none"}}>
           {this.state.suggestions.map((suggestion) => (
             <li 
               key={suggestion}
               onClick={() => this.handleItemClicked(suggestion)}
-              >
+            >
               {suggestion}
             </li>
           ))}
@@ -63,8 +63,8 @@ export class CitySearch extends Component {
           </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 
-export default CitySearch
+export default CitySearch;
