@@ -7,7 +7,10 @@ function WelcomeScreen(props) {
   // Welcome screen visible if prop 'showWelcomeScreen' is truthy 
   return props.showWelcomeScreen ? (
     <div className="WelcomeScreen">
-
+      <div className="branding">
+        <h1 className="meetapp-logo">MeetApp</h1>
+      </div>
+      
       <div className="authentication">
         <h2>Log in to search global tech events</h2>
         
