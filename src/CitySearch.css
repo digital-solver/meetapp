@@ -1,0 +1,7 @@
+.city {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  background: linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(45deg, #6cde69, #2e87d9) border-box;
+  border-bottom: 2px solid transparent !important;
+}

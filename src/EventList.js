@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Event from "./Event";
 import PropTypes from "prop-types";
+import "./EventList.css";
 
 export class EventList extends Component {  
   render() {

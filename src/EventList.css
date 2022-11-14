@@ -1,0 +1,24 @@
+.details__outer-container {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details__outer-container > h2 {
+  font-family: "Maven Pro";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.06em;
+}
+
+.details__outer-container > p {
+  text-align: center;
+}
+
+.details__toggle {
+  align-self: center;
+  margin-top: 1.5rem;
+}

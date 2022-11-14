@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {InfoAlert} from "./Alert";
 import PropTypes from "prop-types";
+import "./CitySearch.css";
 
 export class CitySearch extends Component {
   state = {
@@ -43,14 +44,15 @@ export class CitySearch extends Component {
     return (
       <div className='CitySearch' style={{"display": "block"}}>
         <InfoAlert text={this.state.infoText} />
-        <input
+        <input className="city"
           type="text"
-          className="city"
           value={this.state.query}
+          placeholder="Search a city..."
           onChange={this.handleInputChanged}
           onFocus={() => {this.setState({ showSuggestions: true }); }}
         />
-        <ul className="suggestions" style={this.state.showSuggestions ? {} : { display: "none"}}>
+        <ul className="suggestions" 
+          style={this.state.showSuggestions ? {} : { display: "none"}}>
           {this.state.suggestions.map((suggestion) => (
             <li 
               key={suggestion}
