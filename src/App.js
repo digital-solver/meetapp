@@ -5,11 +5,10 @@ import CitySearch from "./CitySearch";
 import NumberOfEvents from "./NumberOfEvents";
 import EventGenre from "./EventGenre";
 import { mockData } from "./mock-data";
-// import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
-import { extractLocations, getEvents, checkToken } from "./api";
+import { extractLocations, getEvents, checkToken, getAccessToken } from "./api";
 import "./nprogress.css";
 import { WarningAlert } from "./Alert";
-// import WelcomeScreen from "./WelcomeScreen";
+import WelcomeScreen from "./WelcomeScreen";
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
 class App extends Component {
@@ -128,12 +127,12 @@ class App extends Component {
             </ResponsiveContainer>
           </div>
           <EventList events={events.slice(0, eventsLength)} />
-          {/* <WelcomeScreen
+          <WelcomeScreen
             showWelcomeScreen={this.state.showWelcomeScreen}
             getAccessToken={() => {
               getAccessToken();
             }}
-          /> */}
+          />
         </div>
       );
     } else {
@@ -171,12 +170,12 @@ class App extends Component {
           </div>
           <div className="results"> 
             <EventList events={events.slice(0, eventsLength)} />
-            {/* <WelcomeScreen
-            showWelcomeScreen={this.state.showWelcomeScreen}
-            getAccessToken={() => {
-              getAccessToken();
-            }}
-          /> */}
+            <WelcomeScreen
+              showWelcomeScreen={this.state.showWelcomeScreen}
+              getAccessToken={() => {
+                getAccessToken();
+              }}
+            />
           </div>
         </div>
       );
