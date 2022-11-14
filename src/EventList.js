@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Event from "./Event";
+import PropTypes from "prop-types";
 
 export class EventList extends Component {  
   render() {
@@ -14,5 +15,9 @@ export class EventList extends Component {
     );
   }
 }
+
+EventList.propTypes = {
+  events: PropTypes.array.isRequired
+};
 
 export default EventList;

@@ -1,5 +1,7 @@
 import React from "react";
 import "./WelcomeScreen.css";
+import PropTypes from "prop-types";
+
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ? (
     <div className="WelcomeScreen">
@@ -7,7 +9,7 @@ function WelcomeScreen(props) {
       <h4>
         Log in to see upcoming events around the world for full-stack developers
       </h4>
-      <div className="button_cont" align="center">
+      <div className="button_cont">
         <div className="google-btn">
           <div className="google-icon-wrapper">
             <img
@@ -37,4 +39,11 @@ o.svg"
     </div>
   ) : null;
 }
+
+
+WelcomeScreen.propTypes = {
+  showWelcomeScreen: PropTypes.func.isRequired,
+  getAccessToken: PropTypes.func.isRequired
+};
+
 export default WelcomeScreen;

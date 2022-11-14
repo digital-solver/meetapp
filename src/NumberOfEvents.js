@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ErrorAlert, WarningAlert } from "./Alert";
+import PropTypes from "prop-types";
 
 export class NumberOfEvents extends Component {
 
@@ -24,4 +25,12 @@ export class NumberOfEvents extends Component {
     );
   }
 }
+
+NumberOfEvents.propTypes = {
+  eventsLength: PropTypes.number.isRequired, 
+  handleChange: PropTypes.func.isRequired, 
+  errorText: PropTypes.string.isRequired, 
+  warningText: PropTypes.string.isRequired
+};
+
 export default NumberOfEvents;

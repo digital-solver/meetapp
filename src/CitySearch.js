@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {InfoAlert} from "./Alert";
+import PropTypes from "prop-types";
 
 export class CitySearch extends Component {
   state = {
@@ -66,5 +67,10 @@ export class CitySearch extends Component {
     );
   }
 }
+
+CitySearch.propTypes = { 
+  locations: PropTypes.array.isRequired,
+  updateEvents: PropTypes.func.isRequired
+};
 
 export default CitySearch;

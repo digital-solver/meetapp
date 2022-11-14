@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Event.css";
+import PropTypes from "prop-types";
 
 export class Event extends Component {
   constructor(props) {
@@ -35,5 +36,9 @@ export class Event extends Component {
     );
   }
 }
+
+Event.propTypes = {
+  event: PropTypes.object.isRequired
+};
 
 export default Event;

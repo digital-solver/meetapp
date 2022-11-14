@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from "recharts";
+import PropTypes from "prop-types";
 
 const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
@@ -42,6 +43,10 @@ const EventGenre = ({ events }) => {
       </PieChart>
     </ResponsiveContainer>
   );
+};
+
+EventGenre.propTypes = {
+  events: PropTypes.array
 };
 
 export default EventGenre;
