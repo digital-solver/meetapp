@@ -2,19 +2,17 @@
   "name": "meetapp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Digital-Solver.github.io/meetapp",
+  "homepage": "https://digital-solver.github.io/meetapp/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "atatus-spa": "^4.5.0",
     "axios": "^0.27.2",
-    "gh-pages": "^4.0.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^2.1.3",
-    "recharts": "^2.1.16",
+    "recharts": "^2.1.14",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.4",
     "workbox-broadcast-update": "^6.5.4",
@@ -32,10 +30,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll",
+    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -52,33 +56,12 @@
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "enzyme": "^3.11.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "gh-pages": "^4.0.0",
     "jest-cucumber": "^3.0.1",
-    "puppeteer": "^18.1.0"
+    "puppeteer": "^19.1.2",
+    "react-scripts": "^5.0.1"
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/index.js",
-      "!src/hooks/*.js",
-      "!src/context/*.js",
-      "!src/reportWebVitals.js",
-      "!src/service-worker.js",
-      "!src/serviceWorkerRegistration.js",
-      "!src/api.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 70,
-        "functions": 70,
-        "lines": 70,
-        "statements": 70
-      }
-    },
-    "coverageReporters": [
-      "html",
-      "text"
-    ]
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
