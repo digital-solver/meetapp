@@ -1,10 +1,10 @@
 # Meetapp
 
-Meetapp is a React PWA that helps users discover events happening in their city. 
+Meetapp is a cross-platform React PWA that helps users to find and connect with likeminded people in their city by discovering events that they are interested in that are happening in their city. By using the Google Calendar API, Meetapp is able to fetch event data and display it to the user in a user-friendly interface.
 
-By using the Google Calendar API, Meetapp is able to fetch event data and display it to the user in a user-friendly interface. 
+To complete this project, I implemented serverless technologies, a BDD & TDD methodology, Google Calendar API, search functionality, toggleable event details, and the ability to change the number of events displayed. I am particularly happy with the offline functionality that allows users to access cached data when they don't have an internet connection.
 
-I was responsible for building the app from the ground up, including implementing search functionality, toggleable event details, and the ability to change the number of events displayed. I am particularly happy with the offline functionality that I implemented, allowing users to access cached data when they don't have an internet connection. Working on Meetapp was a fun experience while also improving my skills in frontend development and API integration.
+Working on Meetapp was a fun experience while also improving my skills in frontend development, serverless, and API integration.
 
 # Table of Contents
 
