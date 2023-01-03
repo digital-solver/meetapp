@@ -1,17 +1,117 @@
 # Meetapp
-Connect with likeminded people in your city by finding events you are interested in.
 
-## Objectives
-- Build a serverless React PWA (for online and offline use).
-- Follow a BDD & TDD methodology (scenarios & stories, red-green-refactor, quick feedback).
-- Fetch event data from Google Calendar API.
-- Data visualisation (number of upcoming events, & popularity of event genres)
+Meetapp is a React PWA that helps users discover events happening in their city. 
 
-### Context
-- Serverless allows: less backend maintenance, increased scalability, high availability.
-- PWA's allow: instant loading, offline availability, and cross-platform features.
+By using the Google Calendar API, Meetapp is able to fetch event data and display it to the user in a user-friendly interface. 
+
+I was responsible for building the app from the ground up, including implementing search functionality, toggleable event details, and the ability to change the number of events displayed. I am particularly happy with the offline functionality that I implemented, allowing users to access cached data when they don't have an internet connection. Working on Meetapp was a fun experience while also improving my skills in frontend development and API integration.
+
+# Table of Contents
+
+* [Features](#features)
+* [Technologies](#technologies)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Configuration](#configuration)
+* [Materials](#materials)
+* [Contribution Guideilnes](#contribution)
+* [License](#license)
+* [Contact](#contact)
+* [Resources](#resources)
+* [Appendix](#appendix)
 
 ## Features
+
+### 1. Search events by city:
+- When user hasn’t searched for a city, show upcoming events from all cities.
+- User should see a list of suggestions when they search for a city.
+- User can select a city from the suggested list.
+
+### 2. Toggle info visibility:
+- An event element is collapsed by default.
+- User can expand an event to see its details.
+- User can collapse an event to hide its details.
+
+### 3. Select number of events to show:
+- When user hasn’t specified a number, 32 is the default number.
+- User can change the number of events they want to see.
+
+### 4. Available offline:
+- Show cached data when there’s no internet connection.
+- Show error when user tries to access the app in offline mode and there is no cache available.
+
+## Technologies
+
+The following technologies were used in the development of this project:
+
+* Frontend:
+    * React
+    * PWA (& Service Workers)
+    * Data visualization (recharts)
+* Backend:
+    * Google Calendar Meetup API
+    * OAuth2 authentication
+    * Serverless functions (AWS Lambda)
+* Testing:
+    * Jest for TDD (Unit & Integration)
+    * Jest-Cucumber for BDD
+    * Puppeteer for E2E
+    * Tests with coverage rate >= 90%
+* Deployment:
+    * GitHub Pages
+* Miscellaneous:
+    * Version control with Git
+    * Online monitoring tool
+
+## Installation
+
+1. First, make sure that you have Node.js and npm installed on your local machine. These are required to run the project.
+2. Next, clone the repository to your local machine using the following command: `git clone https://github.com/digital-solver/meetapp.git`
+3. Navigate to the project directory by running: `cd meetapp`
+4. Install the necessary dependencies by running: `npm install`
+5. Build the project by running: `npm run build`
+6. Start the development server by running: `npm start`
+7. The app should now be running and available at http://localhost:3000/. You can access it by opening a web browser and navigating to that address.
+8. If you encounter any errors or issues during the installation process, you can get in touch with me (see contact section).
+
+## Usage
+
+To start using Meetapp, follow these steps:
+
+1. Open the app in your web browser by navigating to the URL where it is hosted.
+2. Authenticate and log in with Google OAuth
+3. After logging in, by default, the app will show a list of upcoming events from all cities. To filter the events by city, type the name of the city you are interested in into the textbox at the top of the page and select a city from the list of suggestions. The list of events will update to show only those that take place in the selected city.
+4. To see more details about an event, click on the event in the list. This will expand the event to show additional information such as the event's description and location. To hide the details again, click the event again.
+5. You can adjust the number of events shown in the list by specifying a number in the "Number of events to show" textbox.
+6. If the app is used offline or in slow network conditions, a cached version of the event data will be shown. An error message will be displayed if the app is unable to retrieve fresh data from the server.
+7. To install the app as a PWA on your desktop or add it to your mobile home screen, follow the prompts that appear when you visit the app in your web browser. This will allow you to access the app more quickly and easily in the future.
+
+## Materials
+
+- Google Calendar API documentation
+- User Stories, BDD Scenarios, and Gherkin syntax (see appendix)
+
+## Contribution
+
+1. Follow the BDD & TDD methodology.
+2. Create a new branch for every new feature or bug fix.
+3. Write clear and concise commit messages.
+4. Use Pull Requests to merge changes.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Feel free to contact me at kerr(dot)digitalsolver@gmail.com if you have any questions or suggestions.
+
+## Resources
+
+[PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) | 
+[React](https://reactjs.org/)
+
+## Appendix - User Stories, BDD Scenarios, and Gherkin syntax
 
 ### **1. Search events by city**
 ***Scenario 1:*** When user hasn’t searched for a city, show upcoming events from all cities.
